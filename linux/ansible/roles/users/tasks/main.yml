@@ -1,3 +1,16 @@
+- name: add deploy group
+  group: 
+    name: deploy
+    state: present
+    gid: 1050
+  when: server | bool
+
+- name: add docker group
+  group:
+    name: docker
+    state: present
+  when: server | bool
+
 - name: add deployment user
   user: 
     name: deploy

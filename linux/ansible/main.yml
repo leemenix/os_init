@@ -14,5 +14,5 @@
 
     - include_role:
         name: users
-        vars: 
-          server: true
+      vars: 
+        server: true
