@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [[] $UID == 0 ]]; then
+if [[ $UID == 0 ]]; then
   echo "Please execute script as root user."; 
 fi
 
 # enable slackware mirrorlist
- sed -i "/http:\/\/mirrors.slackware.com\/slackware\/slackware64-14.2/s/^# //g" /etc/slackpkg/mirrors
+sed -i "/http:\/\/mirrors.slackware.com\/slackware\/slackware64-14.2/s/^# //g" /etc/slackpkg/mirrors
 
 slackpkg update
 
@@ -17,7 +17,7 @@ installpkg /tmp/sbopkg.tgz
 #The following directories do not exist:
 #Variable                   Assignment
 #--------                   ----------
-mkdir -p /var/lib/sbopkg/,SBo/,14.2
+mkdir -p /var/lib/sbopkg/SBo/14.2
 mkdir -p /var/log/sbopkg
 mkdir -p /var/lib/sbopkg/queues
 mkdir -p /var/cache/sbopkg
