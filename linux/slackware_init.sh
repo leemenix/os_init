@@ -8,6 +8,8 @@ fi
 sed -i "/http:\/\/mirrors.slackware.com\/slackware\/slackware64-14.2/s/^# //g" /etc/slackpkg/mirrors
 
 slackpkg update
+# slackware check if support non interactive upgrade of packages
+#slackpkg upgrade-all
 
 # get & install sbopkg
 wget -O /tmp/sbopkg.tgz https://github.com/sbopkg/sbopkg/releases/download/0.38.1/sbopkg-0.38.1-noarch-1_wsr.tgz
