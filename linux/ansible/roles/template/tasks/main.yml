@@ -1,4 +1,8 @@
-- name: prepare common main.yml 
-  template:
-    src: main.yml.j2
-    dest: "{{ playbook_dir }}/roles/common/tasks/main.yml"
+- name: install common tools
+{% if ansible_distribution == "CentOS" %}
+  yum:
+{% elif ansible_distribution == "Debian "%}
+  apt:
+{% endif %}
+    name: ['vim','python3','curl','wget','net-tools']
+    state: present
