@@ -1,3 +1,6 @@
 - name: hello there
   debug:
     msg: "Hello there"
+- name: built in vars
+  debug:
+    msg: "Role path: {{ role_path }} & Playbook dir {{ playbook_dir }}"
