@@ -5,7 +5,7 @@ if [[] $UID == 0 ]]; then
 fi
 
 # enable slackware mirrorlist
-sed -i "/mirrorlist/s/^# //g" /etc/slackpkg/mirrors
+ sed -i "/http:\/\/mirrors.slackware.com\/slackware\/slackware64-14.2/s/^# //g" /etc/slackpkg/mirrors
 
 slackpkg update
 
