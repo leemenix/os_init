@@ -12,4 +12,4 @@ pip3 install ansible
 
 # fetch ansible playbook
 cd /tmp ; git clone https://github.com/leemenix/os_init.git
-ansible-playbook os_init/main.yml
+ansible-playbook os_init/linux/ansible/main.yml
