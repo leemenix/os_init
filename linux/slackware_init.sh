@@ -22,8 +22,10 @@ mkdir -p /var/log/sbopkg
 mkdir -p /var/lib/sbopkg/queues
 mkdir -p /var/cache/sbopkg
 mkdir -p /tmp/SBo
+# sync with local repo
+sbopkg -r 
 
 sqg -p ansible
 #Build and install packages from a created queuefile (answer Q for question if sbopkg should use queue or package):
 
-sbopkg -k -i ansible
+sbopkg -B -k -i ansible
