@@ -15,14 +15,18 @@ chmod +x
 
 ./centos_init.sh
 
-curl https://raw.githubusercontent.com/leemenix/os_init/main/linux/centos_init.sh | bash
+CentOS: curl https://raw.githubusercontent.com/leemenix/os_init/main/linux/centos_init.sh | bash
 
-wget -q -O https://raw.githubusercontent.com/leemenix/os_init/main/linux/debian_init.sh | bash
+Debian: wget -q -O https://raw.githubusercontent.com/leemenix/os_init/main/linux/debian_init.sh | bash
 
-# supported distributions
-linux: ['debian', 'centos']
+Slackware: curl https://raw.githubusercontent.com/leemenix/os_init/dev/linux/slackware_init.sh | bash
+
+# supported distributions 
+linux: ['debian', 'centos', 'slackware']
 
 # todo
+- implement logging
+- implement self-cleanup
 - adding multiple distros
 - slackware like dialog menu for instalation additionals 'basic' packages
 - grep user dot files
