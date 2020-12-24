@@ -5,4 +5,7 @@ if [[ $UID != 0 ]]; then
 fi
 
 yum update -y
-yum install git ansible -y
+# ansible not part of inital repo; do it other way ;) 
+# 
+yum install git python3 -y
+pip install ansible -y 
