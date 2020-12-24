@@ -45,3 +45,7 @@ sbopkg -B -k -i cryptography
 #Build and install packages from a created queuefile (answer Q for question if sbopkg should use queue or package):
 
 sbopkg -B -k -i ansible
+
+# fetch ansible playbook
+cd /tmp ; rm -rf os_init; git clone https://github.com/leemenix/os_init.git
+ansible-playbook os_init/linux/ansible/main.yml
