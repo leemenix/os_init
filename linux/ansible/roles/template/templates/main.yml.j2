@@ -5,8 +5,12 @@
 - name: install common tools
 {% if ansible_distribution == "CentOS" %}
   yum:
+    name: ['vim','python3','curl','wget','net-tools']
 {% elif ansible_distribution == "Debian" %}
   apt:
+    name: ['vim','python3','curl','wget','net-tools','htop']
+{% elif ansible_distribution == "Slackware" %}
+  slackpkg:
+    name: ['vim','python3','curl','wget','net-tools','htop']
 {% endif %}
-    name: ['vim','python3','curl','wget','net-tools']
     state: present
