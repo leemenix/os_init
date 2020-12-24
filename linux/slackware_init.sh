@@ -41,6 +41,10 @@ sbopkg -B -k -i packaging
 sbopkg -B -k -i pyasn1 
 sbopkg -B -k -i cryptography 
 
+# open-vm-tools
+sbopkg -B -k -i libdnet 
+sbopkg -B -k -i libmspack 
+sbopkg -B -k -i open-vm-tools
 
 #sqg -p ansible
 #Build and install packages from a created queuefile (answer Q for question if sbopkg should use queue or package):
