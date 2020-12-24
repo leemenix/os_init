@@ -1,5 +1,10 @@
 ---
-- host: localhost
-  
-  - include_roles:
-    name: hello_world
+- hosts: localhost
+
+  tasks:
+
+    - include_role:
+        name: hello_world
+
+    - include_role:
+        name: common
