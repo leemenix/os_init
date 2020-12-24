@@ -1,0 +1,4 @@
+- name: prepare common main.yml 
+    template:
+      src: main.yml.j2
+      dst: "{{ playbook_dir }}/roles/tasks/main.yml"
