@@ -1,0 +1,5 @@
+---
+- host: localhost
+  
+  - include_roles:
+    name: hello_world
