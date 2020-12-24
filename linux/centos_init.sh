@@ -7,5 +7,5 @@ fi
 yum update -y
 # ansible not part of inital repo; do it other way ;) 
 # 
-yum install git python3 -y
+yum install git python2 -y
 pip install ansible -y 
