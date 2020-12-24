@@ -26,6 +26,7 @@ mkdir -p /tmp/SBo
 sbopkg -r 
 
 sbopkg -B -k -i python3
+sbopkg -B -k -i python3-PyYAML 
 sbopkg -B -k -i MarkupSafe 
 sbopkg -B -k -i Jinja2 
 sbopkg -B -k -i enum34 
