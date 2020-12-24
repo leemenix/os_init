@@ -19,3 +19,9 @@
     groups: deploy,docker
     append: yes
   when: server | bool
+
+- name: add pub_key for auto login via deployment user
+  ansible.posix.authorized_key:
+    user: deploy
+    state: present
+    key: deploy_pub
