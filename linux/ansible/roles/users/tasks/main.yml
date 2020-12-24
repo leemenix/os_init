@@ -21,7 +21,10 @@
   when: server | bool
 
 - name: add pub_key for auto login via deployment user
-  ansible.posix.authorized_key:
+  authorized_key:
     user: deploy
     state: present
-    key: deploy_pub
+    key: '{{ item }}'
+  with_file:
+    - deploy_pub
+  when: server | bool
