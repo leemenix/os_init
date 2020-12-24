@@ -9,3 +9,5 @@ fi
 
 slackpkg update
 
+# get & install sbopkg
+wget -q -O - https://github.com/sbopkg/sbopkg/releases/download/0.38.1/sbopkg-0.38.1-noarch-1_wsr.tgz | installpkg
