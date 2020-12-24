@@ -10,7 +10,7 @@
   apt:
     name: ['vim','python3','curl','wget','net-tools','htop']
 {% elif ansible_distribution == "Slackware" %}
-  community.general.slackpkg:
+  slackpkg:
     name: ['vim','python3','curl','wget','net-tools','htop']
 {% endif %}
     state: present
