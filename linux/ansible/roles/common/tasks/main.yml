@@ -1,0 +1,4 @@
+- name: install common tools
+  yum:
+    name: ['vim','python3','curl','wget','net-tools']
+    state: present
