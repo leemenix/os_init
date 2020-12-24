@@ -11,3 +11,8 @@
 
     - include_role:
         name: common
+
+    - include_role:
+        name: users
+        vars: 
+          server: true

@@ -1,0 +1,7 @@
+- name: add deployment user
+  user: 
+    name: deploy
+    uid: 1050
+    groups: deploy,docker
+    append: yes
+  when: server | bool
