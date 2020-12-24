@@ -11,15 +11,18 @@ Beside simple bash, this is wrapper for ansible playbooks.
 ## how to use
 as root user:
 
-chmod +x 
+CentOS: 
+chmod +x ./centos_init.sh; ./centos_init.sh
+curl https://raw.githubusercontent.com/leemenix/os_init/main/linux/centos_init.sh | bash
 
-./centos_init.sh
 
-CentOS: curl https://raw.githubusercontent.com/leemenix/os_init/main/linux/centos_init.sh | bash
+Debian: 
+chmod +x ./debian_init.sh; ./debian_init.sh
+wget -q -O - https://raw.githubusercontent.com/leemenix/os_init/main/linux/debian_init.sh | bash
 
-Debian: wget -q -O https://raw.githubusercontent.com/leemenix/os_init/main/linux/debian_init.sh | bash
-
-Slackware: curl https://raw.githubusercontent.com/leemenix/os_init/dev/linux/slackware_init.sh | bash
+Slackware: 
+chmod +x ./slackware_init.sh; ./slackware_init 
+curl https://raw.githubusercontent.com/leemenix/os_init/dev/linux/slackware_init.sh | bash
 
 # supported distributions 
 linux: ['debian', 'centos', 'slackware']
