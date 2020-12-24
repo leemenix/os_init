@@ -1,7 +1,11 @@
+- name: get distro name
+  debug:
+    msg: "You currently using {{ ansible_distribution }} distro."
+
 - name: install common tools
 {% if ansible_distribution == "CentOS" %}
   yum:
-{% elif ansible_distribution == "Debian "%}
+{% elif ansible_distribution == "Debian" %}
   apt:
 {% endif %}
     name: ['vim','python3','curl','wget','net-tools']
