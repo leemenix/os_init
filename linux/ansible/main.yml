@@ -6,5 +6,8 @@
     - include_role:
         name: hello_world
 
+    # - include_role:
+    #     name: template
+
     - include_role:
         name: common
