@@ -5,10 +5,10 @@
 - name: install common tools
 {% if ansible_distribution == "CentOS" %}
   yum:
-    name: ['vim', 'python3', 'curl', 'wget', 'net-tools', 'tmux', 'mlocate', 'sudo']
+    name: ['vim', 'python3', 'python3-pip.noarch', 'curl', 'wget', 'net-tools', 'tmux', 'mlocate', 'sudo']
 {% elif ansible_distribution == "Debian" %}
   apt:
-    name: ['vim', 'python3', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'mlocate', 'sudo']
+    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'mlocate', 'sudo']
 {% elif ansible_distribution == "Slackware" %}
   slackpkg:
     name: ['vim', 'python3', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'slocate', 'sudo']
