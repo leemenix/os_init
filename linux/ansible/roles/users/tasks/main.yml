@@ -28,3 +28,9 @@
   with_file:
     - deploy_pub
   when: server | bool
+
+- name: made deploy part of sudoers , passwordless (which is sec issue in real world)
+  lineinfile:
+    path: /etc/sudoers
+    line: "deploy        ALL=(ALL)       NOPASSWD: ALL"
+    validate: visudo -cf %s
