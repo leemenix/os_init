@@ -11,5 +11,5 @@ yum install git python3 python3-pip -y
 pip3 install ansible
 
 # fetch ansible playbook
-cd /tmp ; git clone git@github.com:leemenix/os_init.git
+cd /tmp ; git clone https://github.com/leemenix/os_init.git
 ansible-playbook os_init/main.yml
