@@ -5,13 +5,13 @@
 - name: install common tools
 {% if ansible_distribution == "CentOS" %}
   yum:
-    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'nc']
+    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'nc', 'unzip']
 {% elif ansible_distribution == "Debian" %}
   apt:
-    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'ncat']
+    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'ncat', 'unzip']
 {% elif ansible_distribution == "Ubuntu" %}
   apt:
-    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'ncat']
+    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'ncat', 'unzip']
 {% elif ansible_distribution == "Slackware" %}
   slackpkg:
     name: ['vim', 'python3', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'slocate', 'sudo']
