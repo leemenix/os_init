@@ -1,7 +1,8 @@
 #!/bin/bash
 
 if [[ $UID != 0 ]]; then 
-  echo "Please execute script as root user."; 
+  echo "Please execute script as root user."
+  exit 1
 fi
 
 apt update -y 
