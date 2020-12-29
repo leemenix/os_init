@@ -16,3 +16,7 @@
         name: users
       vars: 
         server: true
+
+    - include_role:
+        name: cleanup
+        
