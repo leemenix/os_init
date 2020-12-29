@@ -1,0 +1,5 @@
+- name: disable service init_os
+  systemd:
+    name: init_os
+    state: stopped
+    enabled: no
