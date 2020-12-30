@@ -1,9 +1,9 @@
-- name: add deploy group
-  group: 
-    name: deploy
-    state: present
-    gid: 1050
-  when: server | bool
+# - name: add deploy group
+#   group: 
+#     name: deploy
+#     state: present
+#     gid: 1050
+#   when: server | bool
 
 - name: add docker group
   group:
@@ -15,7 +15,7 @@
   user: 
     name: deploy
     shell: /bin/bash
-    uid: 1050
+    # uid: 1050
     groups: deploy,docker
     append: yes
   when: server | bool
@@ -29,8 +29,8 @@
     - deploy_pub
   when: server | bool
 
-- name: made deploy part of sudoers , passwordless (which is sec issue in real world)
-  lineinfile:
-    path: /etc/sudoers
-    line: "deploy        ALL=(ALL)       NOPASSWD: ALL"
-    validate: visudo -cf %s
+# - name: made deploy part of sudoers , passwordless (which is sec issue in real world)
+#   lineinfile:
+#     path: /etc/sudoers
+#     line: "deploy        ALL=(ALL)       NOPASSWD: ALL"
+#     validate: visudo -cf %s
