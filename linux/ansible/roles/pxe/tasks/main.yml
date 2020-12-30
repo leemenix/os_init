@@ -51,21 +51,62 @@
     url: http://mirror.centos.org/centos/8/BaseOS/x86_64/os/isolinux/initrd.img
     dest: /var/lib/tftpboot/centos8/
 
-- name: start service
+- name: prepare dir for vsfptpd /var/ftp/pub
+  file:
+    path: /var/ftp/pub
+    state: directory
+    mode: '0755'
+
+- name: prepare dir for centos8 /var/ftp/pub/centos8
+  file:
+    path: /var/ftp/pub/centos8
+    state: directory
+    mode: '0755'
+
+- name: fetch cento8 from mirror.cntos.org
+  shell:  lftp -c "open http://mirror.centos.org/centos/8/BaseOS/x86_64/os/ ; mirror -c -e . /var/ftp/pub/centos8"
+
+- name: restart and enable service dnsmasq
   systemd:
     name: dnsmasq
-    state: started
+    state: restarted
+    enabled: yes
 
-- name: start service vsfptd
+- name: restart and enable service vsfptd
   systemd:
     name: vsftpd
-    state: started
+    state: restarted
+    enabled: yes
 
 - name: enable fpt service firewall
   firewalld:
     service: ftp
     permanent: true
     state: enabled 
+
+- name: enable dns service firewall
+  firewalld:
+    service: dns
+    permanent: true
+    state: enabled
+
+- name: enable dhcp service firewall
+  firewalld:
+    service: dhcp
+    permanent: true
+    state: enabled
+
+- name: enable 69/udp port firewall
+  firewalld:
+    port: 69/udp
+    permanent: true
+    state: enabled
+
+- name: enable 4011/udp port firewall
+  firewalld:
+    port: 4011/udp
+    permanent: true
+    state: enabled
 
 - name: restart firewalld
   systemd:
