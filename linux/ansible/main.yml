@@ -1,6 +1,8 @@
 ---
 - hosts: localhost
   become: yes
+  vars:
+    deploy_docker: False
   tasks:
 
     - include_role:
@@ -19,7 +21,7 @@
     
     - include_role:
         name: docker-centos
-      when: ansible_distribution == "CentOS"
+      when: ansible_distribution == "CentOS" and deploy_docker | bool
     
     - include_role:
         name: cleanup
