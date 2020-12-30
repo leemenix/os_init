@@ -16,15 +16,17 @@
     src: vsftpd.conf
     dest: /etc/vsftpd/vsftpd.conf
 
-- name: prepare /var/lib/tftpboot dir
-  file:
-    path: /var/lib/tftpboot
-    state: directory
+#- name: prepare /var/lib/tftpboot dir
+#  file:
+#    path: /var/lib/tftpboot
+#    state: directory
 
 - name: copy syslinux to /var/lib/tftpboot
   synchronize:
     src: /usr/share/syslinux/
     dest: /var/lib/tftpboot/ 
+    times: no
+    recursive: yes
 
 - name: prepare dir for default pxe
   file:
@@ -71,7 +73,7 @@
 - name: fetch cento8 from mirror.cntos.org
   shell:  lftp -c "open http://mirror.centos.org/centos/8/BaseOS/x86_64/os/ ; mirror -c -e . /var/ftp/pub/centos8"
 
-- name: ugly dirty fix for non disabling selinux 
+- name: ugly dirty fix for non disabling selinux, maybe not neccessary anymore as this dir not update by user!!
   shell: restorecon -R -v /var/lib/tftpboot
 
 - name: enable fpt service firewall
