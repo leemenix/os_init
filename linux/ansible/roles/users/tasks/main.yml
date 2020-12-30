@@ -17,7 +17,7 @@
     shell: /bin/bash
     # uid: 1050
     #groups: deploy,docker
-    groupd: docker
+    groups: docker
     append: yes
   when: server | bool
 
