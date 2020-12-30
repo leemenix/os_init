@@ -5,7 +5,7 @@
 - name: install common tools
 {% if ansible_distribution == "CentOS" %}
   yum:
-    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'htop', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'nc', 'unzip', 'open-vm-tools']
+    name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'htop', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'nc', 'unzip', 'open-vm-tools', 'lftp']
 {% elif ansible_distribution == "Debian" %}
   apt:
     name: ['vim', 'python3', 'python3-pip', 'curl', 'wget', 'net-tools', 'htop', 'screen', 'tmux', 'mlocate', 'sudo', 'jq', 'rsync', 'cifs-utils', 'ncat', 'unzip', 'open-vm-tools']
