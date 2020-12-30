@@ -63,20 +63,16 @@
     state: directory
     mode: '0755'
 
+- name: prepare kickstart files (after loop)
+  copy:
+    src: centos-ks_10.10.10.20.cfg
+    dest: /var/ftp/pub/
+
 - name: fetch cento8 from mirror.cntos.org
   shell:  lftp -c "open http://mirror.centos.org/centos/8/BaseOS/x86_64/os/ ; mirror -c -e . /var/ftp/pub/centos8"
 
-- name: restart and enable service dnsmasq
-  systemd:
-    name: dnsmasq
-    state: restarted
-    enabled: yes
-
-- name: restart and enable service vsfptd
-  systemd:
-    name: vsftpd
-    state: restarted
-    enabled: yes
+- name: ugly dirty fix for non disabling selinux 
+  shell: restorecon -R -v /var/lib/tftpboot
 
 - name: enable fpt service firewall
   firewalld:
@@ -112,3 +108,15 @@
   systemd:
     name: firewalld
     state: restarted
+
+- name: restart and enable service dnsmasq
+  systemd:
+    name: dnsmasq
+    state: restarted
+    enabled: yes
+
+- name: restart and enable service vsfptd
+  systemd:
+    name: vsftpd
+    state: restarted
+    enabled: yes
