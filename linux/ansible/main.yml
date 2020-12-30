@@ -3,6 +3,7 @@
   become: yes
   vars:
     deploy_docker: False
+    deploy_pxe: False
   tasks:
 
     - include_role:
@@ -22,7 +23,11 @@
     - include_role:
         name: docker-centos
       when: ansible_distribution == "CentOS" and deploy_docker | bool
-    
+
+    - inlcude_role:
+        name: pxe
+      when: ansible_distribution == "CentOS" and deploy_pxe | boot    
+
     - include_role:
         name: cleanup
         

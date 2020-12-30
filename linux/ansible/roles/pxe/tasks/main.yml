@@ -1,0 +1,73 @@
+- name: debug
+  debug:
+    msg: "yo"
+- name: install services
+  yum:
+    name: ["dnsmasq", "syslinux", "vsftpd"]
+    state: present 
+
+- name: copy dnsmasq.conf
+  copy:
+    src: dnsmasq.conf
+    dest: /etc/dnsmasq.conf
+
+- name: copy vsftpd.conf
+  copy:
+    src: vsftpd.conf
+    dest: /etc/vsftpd/vsftpd.conf
+
+- name: prepare /var/lib/tftpboot dir
+  file:
+    path: /var/lib/tftpboot
+    state: directory
+
+- name: copy syslinux to /var/lib/tftpboot
+  synchronize:
+    src: /usr/share/syslinux/
+    dest: /var/lib/tftpboot/ 
+
+- name: prepare dir for default pxe
+  file:
+    path: /var/lib/tftpboot/pxelinux.cfg
+    state: directory
+
+- name: copy default to /var/lib/tftpboot/pxelinux.cfg
+  copy:
+    src: default
+    dest: /var/lib/tftpboot/pxelinux.cfg/
+
+- name: prepare dir for centos8 source
+  file:
+    path: /var/lib/tftpboot/centos8
+    state: directory
+
+- name: fetch vmlinuz & initrd.img for centos8
+  get_url:
+    url: http://mirror.centos.org/centos/8/BaseOS/x86_64/os/isolinux/vmlinuz
+    dest: /var/lib/tftpboot/centos8/
+
+- name: fetch initrd.img for centos8
+  get_url:
+    url: http://mirror.centos.org/centos/8/BaseOS/x86_64/os/isolinux/initrd.img
+    dest: /var/lib/tftpboot/centos8/
+
+- name: start service
+  systemd:
+    name: dnsmasq
+    state: started
+
+- name: start service vsfptd
+  systemd:
+    name: vsftpd
+    state: started
+
+- name: enable fpt service firewall
+  firewalld:
+    service: ftp
+    permanent: true
+    state: enabled 
+
+- name: restart firewalld
+  systemd:
+    name: firewalld
+    state: restarted
