@@ -11,16 +11,17 @@
     state: present
   when: server | bool
 
-- name: add deployment user
+- name: make user deploy part of docker group
   user: 
     name: deploy
     shell: /bin/bash
     # uid: 1050
-    groups: deploy,docker
+    #groups: deploy,docker
+    groupd: docker
     append: yes
   when: server | bool
 
-- name: add pub_key for auto login via deployment user
+- name: add pub_key for auto login via deploy user
   authorized_key:
     user: deploy
     state: present

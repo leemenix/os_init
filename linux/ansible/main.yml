@@ -16,7 +16,11 @@
         name: users
       vars: 
         server: true
-
+    
+    - include_role:
+        name: docker-centos
+      when: ansible_distribution == "CentOS"
+    
     - include_role:
         name: cleanup
         
