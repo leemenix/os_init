@@ -24,9 +24,9 @@
         name: docker-centos
       when: ansible_distribution == "CentOS" and deploy_docker | bool
 
-    - inlcude_role:
+    - include_role:
         name: pxe
-      when: ansible_distribution == "CentOS" and deploy_pxe | boot    
+      when: ansible_distribution == "CentOS" and deploy_pxe | bool   
 
     - include_role:
         name: cleanup
