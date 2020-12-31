@@ -17,10 +17,10 @@
     dest: /etc/vsftpd/vsftpd.conf
 
 - name: prepare /var/lib/tftpboot dir
- file:
-   path: /var/lib/tftpboot
-   state: directory
-   mode: '0755'
+  file:
+    path: /var/lib/tftpboot
+    state: directory
+    mode: '0755'
 
 - name: prepare dir for default pxe
   file:
