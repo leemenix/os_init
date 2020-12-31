@@ -38,11 +38,9 @@
     dest: /var/lib/tftpboot/pxelinux.cfg/
 
 - name: copy syslinux to /var/lib/tftpboot
-  synchronize:
+  copy:
     src: /usr/share/syslinux/
     dest: /var/lib/tftpboot/ 
-    times: no
-    recursive: yes
 
 - name: fetch vmlinuz & initrd.img for centos8
   get_url:
